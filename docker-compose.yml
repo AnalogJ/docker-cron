@@ -10,7 +10,7 @@ services:
     environment:
       - CUSTOM_ENV_VAR=foobar
     volumes:
-      - ./crontab-example-ubuntu.txt:/etc/crontab
+      - ./ubuntu-crontab-example.txt:/etc/crontab
   alpine:
     container_name: alpine-cron
     build:
@@ -20,7 +20,7 @@ services:
     environment:
       - CUSTOM_ENV_VAR=foobar
     volumes:
-      - ./crontab-example-alpine.txt:/var/spool/cron/crontabs/root
+      - ./alpine-crontab-example.txt:/var/spool/cron/crontabs/root
   centos:
     container_name: centos-cron
     build:
@@ -29,4 +29,4 @@ services:
     environment:
       - CUSTOM_ENV_VAR=foobar
     volumes:
-      - ./crontab-example-centos.txt:/etc/crontab
+      - ./centos-crontab-example.txt:/etc/crontab
