@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+BASH_ENV=/etc/environment
 
 # Example of job definition:
 # .---------------- minute (0 - 59)
@@ -9,6 +11,6 @@
 # *  *  *  *  * user-name command to be executed
 
 * * * * * root date >/proc/1/fd/1 2>/proc/1/fd/2
-* * * * * root . /etc/environment; echo "${CUSTOM_ENV_VAR}" >/proc/1/fd/1 2>/proc/1/fd/2
+* * * * * root echo "${CUSTOM_ENV_VAR}" >/proc/1/fd/1 2>/proc/1/fd/2
 
 # An empty line is required at the end of this file for a valid cron file.
