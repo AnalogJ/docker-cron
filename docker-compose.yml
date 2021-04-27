@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  ubuntu:
+    container_name: ubuntu-cron
+    build:
+      context: .
+      dockerfile: ubuntu.dockerfile
+    init: true
+    environment:
+      - CUSTOM_ENV_VAR=foobar
+    volumes:
+      - ./crontab-example.txt:/etc/crontab
+  alpine:
+    container_name: alpine-cron
+    build:
+      context: .
+      dockerfile: alpine.dockerfile
+    init: true
+    environment:
+      - CUSTOM_ENV_VAR=foobar
+    volumes:
+      - ./crontab-example-alpine.txt:/var/spool/cron/crontabs/root
+  centos:
+    container_name: centos-cron
+    build:
+      context: .
+      dockerfile: centos.dockerfile
+    environment:
+      - CUSTOM_ENV_VAR=foobar
+    volumes:
+      - ./crontab-example.txt:/etc/crontab
