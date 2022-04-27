@@ -6,4 +6,8 @@ RUN apt-get update && apt-get install -y cron && which cron && \
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["cron","-f", "-l", "2"]
+
+# https://manpages.ubuntu.com/manpages/trusty/man8/cron.8.html
+# -f | Stay in foreground mode, don't daemonize.
+# -L loglevel | Tell  cron  what to log about jobs (errors are logged regardless of this value) as the sum of the following values:
+CMD ["cron","-f", "-L", "2"]
