@@ -1,6 +1,6 @@
-FROM centos
+FROM centos:centos7
 
-RUN yum install -y cronie && crond -V && \
+RUN yum install -y cronie && \
     rm -rf /etc/cron.*/*
 
 COPY entrypoint.sh /entrypoint.sh
