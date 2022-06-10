@@ -1,7 +1,11 @@
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y cron && which cron && \
-    rm -rf /etc/cron.*/*
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install -y cron \
+    # Remove package lists for smaller image sizes
+    && rm -rf /var/lib/apt \
+    && which cron \
+    && rm -rf /etc/cron.*/*
 
 COPY entrypoint.sh /entrypoint.sh
 
