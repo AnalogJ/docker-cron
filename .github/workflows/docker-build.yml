@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - 'master'
+  schedule:
+    - cron:  '35 2 * * 2'
 
 permissions: 
   packages: write
