@@ -40,3 +40,12 @@ services:
       - CUSTOM_ENV_VAR=foobar
     volumes:
       - ./centos-crontab-example.txt:/etc/crontab
+  s6overlay:
+    container_name: s6overlay-cron
+    build:
+      context: .
+      dockerfile: s6overlay.dockerfile
+    environment:
+      - CUSTOM_ENV_VAR=s6overlay
+    volumes:
+      - ./ubuntu-crontab-example.txt:/etc/crontab

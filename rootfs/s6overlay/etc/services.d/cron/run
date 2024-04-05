@@ -1,0 +1,5 @@
+#!/command/with-contenv bash
+
+echo "starting cron2"
+date >/proc/1/fd/1 2>/proc/1/fd/2
+cron -f -L 15
