@@ -1,6 +1,16 @@
 version: '3.7'
 
 services:
+  debian:
+    container_name: debian-cron
+    build:
+      context: .
+      dockerfile: debian.dockerfile
+    init: true
+    environment:
+      - CUSTOM_ENV_VAR=foobar
+    volumes:
+      - ./ubuntu-crontab-example.txt:/etc/crontab
   ubuntu:
     container_name: ubuntu-cron
     build:
